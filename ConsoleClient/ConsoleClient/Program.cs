@@ -7,7 +7,7 @@ using App;
 
 namespace ConsoleClient
 {
-    class Program
+    public class Program
     {
         private static CoinChanger coins;
 
@@ -15,6 +15,7 @@ namespace ConsoleClient
         static void Main(string[] args)
         {
             coins = new CoinChanger();
+            //coins.GetTheChange();
         }
     }
 }
