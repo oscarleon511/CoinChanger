@@ -8,68 +8,46 @@ namespace App
 {
     public class CoinChanger
     {
-        public string GetTheChange(int cash)
+        int quarter = 25;
+        int dime = 10;
+        int nickel = 5;
+        int penny = 1;
+       public int incrementquarter = 0;
+       public int incrementdime = 0;
+        public int incrementnickel = 0;
+        public int incrementpenny = 0;
+
+              
+        
+
+        public void GetTheChange(int cash)
         {
-            string quarter = "25";
-            string dime = "10";
-            string nickel = "5";
-            string penny = "1";
-            string result = string.Empty;
-            
+            int total = cash;
 
-            int[] changeToConvert = new int[] {cash }; 
-            
-
-
-
-            for (int i = 0; i < changeToConvert.Length; i++)
+            while(total != 0)
             {
-                if (changeToConvert[i] == 10)
+                if (total >= 25)
                 {
-                    Console.WriteLine("Sample 1:");
-                    Console.WriteLine("==============================================");
-                    result = string.Format("This is your change {0} Cents for this amount {1} Cents",dime, changeToConvert[i]);
-                    Console.WriteLine("==============================================");
-                   //Console.Read();
+                    incrementquarter += 1;
+                    total -= quarter;
                 }
-                else if (changeToConvert[i] == 35)
+                else if ( total >= 10)
                 {
-                    Console.WriteLine("Sample 2:");
-                    Console.WriteLine("==============================================");
-                   result = string.Format("This is your change {0} + {1} cents for this amount {2} Cents", dime, quarter,changeToConvert[i]);
-                    Console.WriteLine("==============================================");
-                    //Console.Read();
+                    incrementdime++;
+                    total -= dime;
                 }
-                else if (changeToConvert[i] == 46)
+                else if (total >=5 )
                 {
-                    Console.WriteLine("Sample 3:");
-                    Console.WriteLine("==============================================");
-                    result = string.Format("This is your change {0} + {1} + {2} + {3} cents for this amount {4} Cents", dime, quarter, dime, penny,changeToConvert[i]);
-                    Console.WriteLine("==============================================");
-                    //Console.Read();
+                    incrementnickel++;
+                    total -= nickel;
                 }
-                else if (changeToConvert[i] == 50)
-                {
-                    //Console.WriteLine("Sample 4:");
-                    //Console.WriteLine("==============================================");
-                    result = string.Format("This is your change {0} + {1} cents for this amount {2} Cents", quarter, quarter, changeToConvert[i]);
-                    //Console.WriteLine("==============================================");
-                    //Console.Read();
-                }
-                               
                 else
                 {
-                    //Console.WriteLine("Sample 5:");
-                    //Console.WriteLine("==============================================");
-                    result = string.Format("This is the current number {0} Cents", changeToConvert[i]);
-                    //Console.WriteLine("==============================================");
-                    //Console.Read();
-
+                    incrementpenny++;
+                    total -= penny;
                 }
-
-               
             }
-            return result;
+           
         }
     }
 }
