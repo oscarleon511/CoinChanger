@@ -59,6 +59,19 @@ namespace SingleCoin
             //Assert
             Assert.AreEqual(numberOfQuarters, 1);
         }
+        [TestMethod]
+        public void When10Cents()
+        {
+            //Arrange
+            CoinChanger test1 = new CoinChanger();
+            //Act 
+            test1.GetTheChange(10);
+            int numberOfnickels = test1.incrementnickel;
+            int numberOfDimesWhen10 = test1.incrementdime;
+            //Assert 
+            Assert.AreEqual(0, numberOfnickels);
+            Assert.AreEqual(1, numberOfDimesWhen10);
+        }
 
     }
 }

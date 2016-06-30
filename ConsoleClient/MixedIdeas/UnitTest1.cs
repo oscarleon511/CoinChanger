@@ -22,10 +22,10 @@ namespace MixedIdeas
             int numberOfNickels = test.incrementnickel;
             int numberOfPennies = test.incrementpenny;
             //Assert
-            Assert.AreEqual(numberOfQuarters, 3);
-            Assert.AreEqual(numberOfDimes, 2);
-            Assert.AreEqual(numberOfNickels, 0);
-            Assert.AreEqual(numberOfPennies, 4);
+            Assert.AreEqual(3, numberOfQuarters);
+            Assert.AreEqual(2, numberOfDimes);
+            Assert.AreEqual(0, numberOfNickels);
+            Assert.AreEqual(4 , numberOfPennies);
             
         }
         [TestMethod]
