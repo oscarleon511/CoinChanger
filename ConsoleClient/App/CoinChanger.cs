@@ -22,67 +22,59 @@ namespace App
         public int incrementpenny = 0;
 
 
-
-
         public void GetTheChange(int cash)
         {
-
             int total = cash;
-
             while (total != 0)
             {
-                if (Condition(total, quarter))
+                if(Condition(total, quarter))
                 {
-                    incrementquarter = CoinIncrements(incrementquarter);//incrementquarter += 1;
-                    total = FinalTotal(total, quarter);
-
+                    incrementquarter = GetCoinIncrement(incrementquarter);
+                    total = GetTotal(total, quarter);
                 }
                 else if (Condition(total, dime))
                 {
-                    incrementdime = CoinIncrements(incrementdime);
-                    total = FinalTotal(total, dime);
+                    incrementdime = GetCoinIncrement(incrementdime);
+                    total = GetTotal(total, dime);
                 }
                 else if (Condition(total, nickel))
                 {
-                    incrementnickel = CoinIncrements(incrementnickel);
-                    total = FinalTotal(total, nickel);
+                    incrementnickel = GetCoinIncrement(incrementnickel);
+                    total = GetTotal(total, nickel);
                 }
                 else
                 {
-                    incrementpenny = CoinIncrements(incrementpenny);
-                    total = FinalTotal(total, penny);
+                    incrementpenny = GetCoinIncrement(incrementpenny);
+                    total = GetTotal(total, penny);
                 }
-
             }
-
-
         }
-        private int CoinIncrements(int coinsToIncrement)
+
+        public int GetCoinIncrement(int increment)
         {
-            return coinsToIncrement += 1;
-        }
+            int numberOfCoinsincremented = 0;
+            numberOfCoinsincremented = increment + 1;
+            return numberOfCoinsincremented;
 
-        private int FinalTotal(int oldTotal, int coin)
+        }
+        public int GetTotal(int total1, int coin)
         {
-            int actualTotal = 0;
-
-            actualTotal = oldTotal - coin;
-
-            return actualTotal;
+            int currentTotal = 0;
+            currentTotal = total1 - coin;
+            return currentTotal;
         }
 
-        private bool Condition(int number, int coin)
+        public bool Condition(int total2, int number)
         {
-
-            bool numberProcessed;
-            numberProcessed = number >= coin;
-            return numberProcessed;
-
+            bool total3;
+            total3 = total2 >= number;
+            return total3;
 
         }
-
-
     }
-
 }
+
+
+
+
 
